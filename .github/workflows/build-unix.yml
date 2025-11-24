@@ -241,7 +241,7 @@ jobs:
         name: "Upload PHP cgi SAPI"
         uses: actions/upload-artifact@v4
         with:
-          name: php-fpm-${{ inputs.php-version }}-${{ inputs.os }}
+          name: php-cgi-${{ inputs.php-version }}-${{ inputs.os }}
           path: buildroot/bin/php-cgi
 
       # Upload extensions metadata
