@@ -21,7 +21,8 @@ on:
         default: '8.4'
         type: choice
         options:
-          - '8.4'
+          - '8.5'
+	  - '8.4'
           - '8.3'
           - '8.2'
           - '8.1'
@@ -41,6 +42,9 @@ on:
         type: boolean
       build-fpm:
         description: Build fpm binary
+        type: boolean
+      build-cgi:
+        description: Build cgi binary
         type: boolean
       prefer-pre-built:
         description: Prefer pre-built binaries (reduce build time)
@@ -81,6 +85,9 @@ on:
         type: boolean
       build-fpm:
         description: Build fpm binary
+        type: boolean
+      build-cgi:
+        description: Build cgi binary
         type: boolean
       prefer-pre-built:
         description: Prefer pre-built binaries (reduce build time)
@@ -166,6 +173,9 @@ jobs:
           if [ ${{ inputs.build-fpm }} == true ]; then
               BUILD_CMD="$BUILD_CMD --build-fpm"
           fi
+	  if [ ${{ inputs.build-cgi }} == true ]; then
+              BUILD_CMD="$BUILD_CMD --build-cgi"
+          fi
           echo 'download='"$DOWN_CMD" >> "$GITHUB_OUTPUT"
           echo 'build='"$BUILD_CMD" >> "$GITHUB_OUTPUT"
           echo 'run='"$RUNS_ON" >> "$GITHUB_OUTPUT"
@@ -225,6 +235,14 @@ jobs:
         with:
           name: php-fpm-${{ inputs.php-version }}-${{ inputs.os }}
           path: buildroot/bin/php-fpm
+
+      # Upload cgi executable
+      - if: ${{ inputs.build-cgi == true }}
+        name: "Upload PHP cgi SAPI"
+        uses: actions/upload-artifact@v4
+        with:
+          name: php-fpm-${{ inputs.php-version }}-${{ inputs.os }}
+          path: buildroot/bin/php-cgi
 
       # Upload extensions metadata
       - uses: actions/upload-artifact@v4

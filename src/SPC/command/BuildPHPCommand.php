@@ -79,6 +79,7 @@ class BuildPHPCommand extends BuildCommand
             $this->output->writeln("<comment>\t--build-cli\t\tBuild php-cli SAPI</comment>");
             $this->output->writeln("<comment>\t--build-micro\t\tBuild phpmicro SAPI</comment>");
             $this->output->writeln("<comment>\t--build-fpm\t\tBuild php-fpm SAPI</comment>");
+			$this->output->writeln("<comment>\t--build-cgi\t\tBuild php-cgi SAPI</comment>");
             $this->output->writeln("<comment>\t--build-embed\t\tBuild embed SAPI/libphp</comment>");
             $this->output->writeln("<comment>\t--build-frankenphp\tBuild FrankenPHP SAPI/libphp</comment>");
             $this->output->writeln("<comment>\t--build-all\t\tBuild all SAPI: cli, micro, fpm, embed, frankenphp</comment>");
