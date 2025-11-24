@@ -1,0 +1,1 @@
+bcmath,bz2,calendar,ctype,curl,dba,dom,event,exif,fileinfo,filter,gd,gettext,gmp,iconv,intl,libxml,mbregex,mbstring,mysqli,mysqlnd,opcache,openssl,pcntl,pdo,pdo_mysql,pdo_pgsql,pdo_sqlite,pgsql,phar,posix,readline,redis,session,shmop,simplexml,soap,sockets,sodium,sqlite3,sysvshm,tidy,tokenizer,xml,xmlreader,xmlwriter,xsl,zip,zlib
